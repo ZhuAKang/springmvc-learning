@@ -5,11 +5,11 @@ SpringMVC 是一种基于 Java 的实现 MVC 设计模型的请求驱动类型�
 Spring 框架提供了构建 Web 应用程序的全功能 MVC 模块。使用 Spring 可插入的 MVC 架构，从而在使用 Spring 进行 WEB 开发时，可以选择使用 Spring的 Spring MVC 框架或集成其他 MVC 开发框架，如 Struts1(现在一般不用)，Struts2 等。
 SpringMVC 已经成为目前最主流的 MVC 框架之一，并且随着 Spring3.0 的发布，全面超越 Struts2，成为最优秀的 MVC 框架。
 它通过一套注解，让一个简单的 Java 类成为处理请求的**控制器**，而无须实现任何接口。同时它还支持RESTful 编程风格的请求。
-![avatar](./mvc.bmp)
+![avatar](images/mvc.bmp)
 
 ## Spring MVC使用demo
 ### 访问的步骤
-![avatar](./request-steps.png)
+![avatar](images/request-steps.png)
 **参与对象描述:**
 1. browse : 用户浏览器
 2. Tomcat : 搭载web应用的服务器
@@ -126,7 +126,7 @@ SpringMVC 已经成为目前最主流的 MVC 框架之一，并且随着 Spring3
     ```
 12. 视图解析器进行转发，然后交给tomcat。
 13. demo图解
-    ![avatar](./demo-image.bmp)
+    ![avatar](images/demo-image.bmp)
     **注意：**
     在实际的编写过程中，应是先配置项目环境，再编写jsp文件与Controller类及方法。jsp要调用类方法的话，需要将类实例化为一个对象，所以要将Controller类放入ioc容器中（注解配置），放入找到类之后如何去调用hello方法，就需要配置@RequestMapping注解，找到处理请求的方法。上面几步的前提都是在springmvc.xml文件中开启了注解扫描。以上都做完之后tomcat启动并不会自动加载springmvc.xml文件，所以还要在web.xml文件的servlet中配置init-param。以上都做完之后，hello方法想要跳转到success.jsp页面，还需要在springmvc.xml中配置视图解析器，完成跳转的工作。至此所以配置就已完成，可以启动了。
 
@@ -171,7 +171,7 @@ SpringMVC框架提供了很多的View视图类型的支持，包括：jstlView�
 10. 最后我们再调用这个视图解析器的渲染视图这个过程，渲染视图这个过程其实就是对于我们的jsp来说，就是把这个数据渲染成html。
 11. 最终渲染成html之后，就响应给用户。
 （摘自：https://www.cnblogs.com/leiqiannian/p/7807579.html）
-![avatar](./springmvc执行流程原理.jpg)
+![avatar](images/springmvc执行流程原理.jpg)
 **注意：**
     我们demo中并没有去配置处理器映射器、处理器适配器，怎么就可以运行呢？
       在springMVC的各个组件中，处理器映射器、处理器适配器、视图解析器成为springmvc的三大组件。
@@ -753,7 +753,7 @@ SpringMVC框架提供了很多的View视图类型的支持，包括：jstlView�
 ### spring mvc实现传统方式文件上传
 1. spring mvc框架提供了MultipartFile对象，该对象表示上传的文件，**要求变量名称必须和表单file标签的name属性名称相同。**
 2. 原理：
-![avatar](./springMVC实现文件上传原理.bmp)
+![avatar](images/springMVC实现文件上传原理.bmp)
     前端发出request请求，由前端控制器转发给配置好的文件解析器。**由文件解析器完成对request请求的解析**并返回文件的对象给控制器。控制器再去找后面对应的Controller方法。
 3. 使用
     1) 文件解析器的配置
@@ -809,7 +809,7 @@ SpringMVC框架提供了很多的View视图类型的支持，包括：jstlView�
 
 1. 异常处理的思路
     Controller调用service，service调用DAO，异常都是向上抛出的，最终由DispatcherServlet找异常处理器进行异常的处理。
-![avatar](./SpringMVC异常处理.bmp)
+![avatar](images/SpringMVC异常处理.bmp)
     如果不配置异常处理器,则会把异常直接抛给浏览器,就很不友好.而且还不安全.
 2. SpringMVC的异常处理
     1. 编写自定义异常类(做提示信息)
